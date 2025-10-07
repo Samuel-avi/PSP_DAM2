@@ -1,0 +1,24 @@
+package actividad2;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+public class Randnum {
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        String filename = "output.txt";  // Set a valid filename
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            int randomNumber = random.nextInt(10);  // Random number between 0-9
+            bw.write(String.valueOf(randomNumber)); // Write as string
+            System.out.println("Random number " + randomNumber + " written to " + filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // args[0] = filename;  <-- Not useful here
+    }
+}
